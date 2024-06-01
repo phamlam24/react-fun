@@ -2,6 +2,7 @@ import Image from "next/image";
 import Gallery from "./Gallery";
 import Profile from "./Profile";
 import ProfileProps from "./ProfileProps";
+import List from "./List";
 import { Title, Heading1 } from "@/components/TextFormat";
 
 export default function Page() {
@@ -95,6 +96,7 @@ export default function Page() {
               fileName: "/lin_lanying.jpg",
               name: "Lin Lanying",
             }}
+            size={100}
           />
         </div>
 
@@ -127,11 +129,22 @@ export default function Page() {
           could figure out yourself if you want.
         </p>
 
+        <List />
+
         <p>
-          
+          About lists - you could just use the JS <i>map()</i> method. Remember
+          to get an unique and unchanging key for all elements in a list!
         </p>
 
-        <h2 className=""></h2>
+        <p>
+          For conditional rendering, you could use the filter() method, ternary
+          operators, or simply conditionals.
+        </p>
+
+        <p>
+          Lastly, remember to keep component functions <b>pure</b> - same input,
+          same output, dont affect anything outside.
+        </p>
       </main>
     </>
   );
