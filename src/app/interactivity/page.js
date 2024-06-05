@@ -3,10 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Title, Heading1 } from "@/components/TextFormat";
-import Head from "next/head";
+import { Heading1 } from "@/components/TextFormat";
 
-import { Toolbar } from "./EventHandler1";
+import { Toolbar } from "./Toolbar";
 import NumberList from "./NumberList";
 import TutorialPage from "../TutorialPage";
 
@@ -22,6 +21,7 @@ export default function Page() {
         onPlayMovie={() => alert("Playing Movie")}
         onUploadImage={() => alert("Uploading image")}
       />
+      <i>check Toolbar.js</i>
 
       <p>
         <i>Event handlers</i> are simple, treat it like onClick functions of
@@ -59,6 +59,51 @@ export default function Page() {
       <p>
         You can use more than one state per component. States in different
         components are independent from each other and private.
+      </p>
+
+      <p>
+        Remember to only use hooks at the top level of your components - no
+        hooks in conditions, loops, nests,...
+      </p>
+
+      <Heading1>Details about Rendering and States</Heading1>
+
+      <p>
+        React is a rendering tool. The rendering process of React have 3 steps:{" "}
+      </p>
+
+      <ul>
+        <li>
+          1. A render is triggered. This could be an <i>initial render</i> or a
+          re-render is triggered by updating a state
+        </li>
+        <li>
+          2. React render the components. On the initial render, React render
+          the <i>root</i> component, recursively down the tree if a component
+          returns some other component. On a re-render, only the component that
+          have their state changed is re-rendered. Remember that the rendering
+          process must be a <b>pure calculation</b>, which means that same
+          input, same output, no side effects. This can be somewhat tested using
+          Strict Mode.
+        </li>
+        <li>
+          3. React modify the DOM. React does not change the DOM nodes if there
+          is no difference between renders.
+        </li>
+      </ul>
+
+      <p>
+        States behave more like a snapshot than a variable. Setting a state does
+        not change the state variable, but triggers a re-render with the new
+        state value.
+      </p>
+
+      <p>
+        Which means, for example, if you have a variable <code>counter</code>,
+        calling <code>setCounter(counter + 1)</code> three times does not change
+        it to <code>counter + 3</code>, but render three times, each time using
+        the original <code>counter</code> variable. In the end, only the last
+        render is visible, and the result is <code>counter + 1</code>.
       </p>
     </TutorialPage>
   );
