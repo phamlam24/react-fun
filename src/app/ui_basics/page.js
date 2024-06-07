@@ -14,6 +14,7 @@ export default function Page() {
     <TutorialPage
       pageName={"ui_basics"}
       title={"Basics of UI Design in React - Components"}
+      showBottomNavbar={true}
     >
       <p>
         <i>Components</i> are one of the core concepts of React.
@@ -141,11 +142,14 @@ export default function Page() {
 
       <Heading1>Notes about using React</Heading1>
       <p>
-        Remember to keep component functions <b>pure</b> - same input,
-        same output, dont affect anything outside.
+        Remember to keep component functions <b>pure</b> - same input, same
+        output, dont affect anything outside.
       </p>
 
-      <p>Finally, React is designed for reusing components - find repetitions in your code, spread it out, </p>
+      <p>
+        Finally, React is designed for reusing components - find repetitions in
+        your code, spread it out,{" "}
+      </p>
     </TutorialPage>
   );
 }

@@ -8,12 +8,14 @@ import { Heading1 } from "@/components/TextFormat";
 import { Toolbar } from "./Toolbar";
 import NumberList from "./NumberList";
 import TutorialPage from "../TutorialPage";
+import SeriesUpdateCounter from "./ToyExample";
 
 export default function Page() {
   return (
     <TutorialPage
       title={"Adding Interactivity with States"}
       pageName="interactivity"
+      showBottomNavbar={true}
     >
       <Heading1>Event Handler Props</Heading1>
 
@@ -105,6 +107,17 @@ export default function Page() {
         the original <code>counter</code> variable. In the end, only the last
         render is visible, and the result is <code>counter + 1</code>.
       </p>
+
+      <p>
+        However, React <i>batches</i> state updates - you can pass a function to
+        setState function that changes the value of the state.
+      </p>
+
+      <SeriesUpdateCounter />
+
+      <p>In this example, I used 3 setState() functions to update the variable.</p>
+
+      <p>As a rule of thumb, treat states as read-only, updating it only using the useState() hook provided.</p>
     </TutorialPage>
   );
 }
